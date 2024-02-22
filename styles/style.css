@@ -226,7 +226,7 @@ button {
 
 .floppy__box {
   position: relative;
-  mix-blend-mode: difference;
+  mix-blend-mode: inherit;
 }
 
 svg {
