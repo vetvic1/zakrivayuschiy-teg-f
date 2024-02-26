@@ -19,6 +19,10 @@
     linear-gradient(180deg, #007f0c 10%, #004306 80%);
   --contour: #00cc14;
   --color-invers: #00cc14;
+
+  .floppy__box {
+    color: currentColor;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -36,6 +40,10 @@
       linear-gradient(180deg, #007f0c 10%, #004306 80%);
     --contour: #00cc14;
     --color-invers: #00cc14;
+
+    .floppy__box {
+      color: currentColor;
+    }
   }
 }
 
@@ -82,5 +90,8 @@
       linear-gradient(180deg, #e7e7e7 10%, #1a1a1a 80%);
     --contour: #000;
     --color-invers: #fff;
+  }
+  .floppy__box {
+    color: #fff;
   }
 }
