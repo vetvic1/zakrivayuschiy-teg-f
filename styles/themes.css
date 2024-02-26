@@ -6,57 +6,81 @@
 */
 
 :root.theme-dark {
-    --main-font-title: 785;
-    --main-font-text: 465;
-    --bg-color: #000;
-    --accent-color: #00CC14;
-    --bg-image: 
-    repeating-linear-gradient(90deg, #000 0 2px, rgb(0 0 0 / 0) 2px 4px), 
-    repeating-linear-gradient(180deg, #000 0 1px, rgb(0 0 0 / 0) 1px 4px), 
-    linear-gradient(180deg, #007f0c 10%, #004306 80% );
-    --contour: #00CC14;
-    --color-invers: #00CC14;
+  --main-font-title: 785;
+  --main-font-text: 465;
+  --bg-color: #000;
+  --accent-color: #00cc14;
+  --bg-image: repeating-linear-gradient(
+      90deg,
+      #000 0 2px,
+      rgb(0 0 0 / 0) 2px 4px
+    ),
+    repeating-linear-gradient(180deg, #000 0 1px, rgb(0 0 0 / 0) 1px 4px),
+    linear-gradient(180deg, #007f0c 10%, #004306 80%);
+  --contour: #00cc14;
+  --color-invers: #00cc14;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
+  :root {
     --main-font-title: 785;
     --main-font-text: 465;
     --bg-color: #000;
-    --accent-color: #00CC14;
-    --bg-image: 
-    repeating-linear-gradient(90deg, #000 0 2px, rgb(0 0 0 / 0) 2px 4px), 
-    repeating-linear-gradient(180deg, #000 0 1px, rgb(0 0 0 / 0) 1px 4px), 
-    linear-gradient(180deg, #007f0c 10%, #004306 80% );
-    --contour: #00CC14;
-    --color-invers: #00CC14;
-    }
+    --accent-color: #00cc14;
+    --bg-image: repeating-linear-gradient(
+        90deg,
+        #000 0 2px,
+        rgb(0 0 0 / 0) 2px 4px
+      ),
+      repeating-linear-gradient(180deg, #000 0 1px, rgb(0 0 0 / 0) 1px 4px),
+      linear-gradient(180deg, #007f0c 10%, #004306 80%);
+    --contour: #00cc14;
+    --color-invers: #00cc14;
+  }
 }
 
 :root.theme-light {
-    --main-font-title: 700;
-    --main-font-text: 400;
-    --bg-color: #FFF;
-    --accent-color: #000;
-    --bg-image:     
-    repeating-linear-gradient(90deg, #d3d3d3 0 2px, rgb(211 211 211 / 0) 2px 4px), 
-    repeating-linear-gradient(180deg, #d3d3d3 0 1px, rgb(211 211 211 / 0) 1px 4px), 
+  --main-font-title: 700;
+  --main-font-text: 400;
+  --bg-color: #fff;
+  --accent-color: #000;
+  --bg-image: repeating-linear-gradient(
+      90deg,
+      #d3d3d3 0 2px,
+      rgb(211 211 211 / 0) 2px 4px
+    ),
+    repeating-linear-gradient(
+      180deg,
+      #d3d3d3 0 1px,
+      rgb(211 211 211 / 0) 1px 4px
+    ),
     linear-gradient(180deg, #e7e7e7 10%, #1a1a1a 80%);
-    --contour: #000;
-    --color-invers: #fff;
+  --contour: #000;
+  --color-invers: #fff;
+
+  .floppy__box {
+    color: #fff;
+  }
 }
 
 @media (prefers-color-scheme: light) {
-    :root {
-        --main-font-title: 700;
-        --main-font-text: 400;
-        --bg-color: #FFF;
-        --accent-color: #000;
-        --bg-image:     
-        repeating-linear-gradient(90deg, #d3d3d3 0 2px, rgb(211 211 211 / 0) 2px 4px), 
-        repeating-linear-gradient(180deg, #d3d3d3 0 1px, rgb(211 211 211 / 0) 1px 4px), 
-        linear-gradient(180deg, #e7e7e7 10%, #1a1a1a 80%);
-        --contour: #000;
-        --color-invers: #fff;
-    }
+  :root {
+    --main-font-title: 700;
+    --main-font-text: 400;
+    --bg-color: #fff;
+    --accent-color: #000;
+    --bg-image: repeating-linear-gradient(
+        90deg,
+        #d3d3d3 0 2px,
+        rgb(211 211 211 / 0) 2px 4px
+      ),
+      repeating-linear-gradient(
+        180deg,
+        #d3d3d3 0 1px,
+        rgb(211 211 211 / 0) 1px 4px
+      ),
+      linear-gradient(180deg, #e7e7e7 10%, #1a1a1a 80%);
+    --contour: #000;
+    --color-invers: #fff;
   }
+}

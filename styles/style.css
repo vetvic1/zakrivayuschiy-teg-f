@@ -55,10 +55,6 @@
   font-size: 14px;
 }
 
-.header__theme-menu {
-
-}
-
 .theme-menu__list {
   display: flex;
   flex-direction: column;
@@ -67,12 +63,8 @@
   margin-inline-start: 20px;
 }
 
-.theme-menu__item {
-
-}
-
 button {
-  background-color: transparent;
+  background-color: var(--bg-color);
   font-family: var(--accent-font), "Arial", fantasy;
   cursor: pointer;
 }
@@ -111,10 +103,6 @@ button {
   transform: scaleX(0);
 }
 
-.content {
-
-}
-
 .content-section {
   margin-inline: auto;
   display: flex;
@@ -144,29 +132,73 @@ button {
 
 .content__picture {
   position: relative;
-  height: 101%;
-  max-width: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.img__watermark {
-  position: relative;
   border: 2px solid var(--accent-color);
-  width: 100%;
-  height: clamp(23.4375rem, 16.3732rem + 30.1408vw, 43.5rem);
-  perspective: 1000px;
 }
 
-.watermark {
+.picture {
+  position: relative;
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 1 / 1;
+}
+
+.picture__filter {
+  filter: brightness(100%) saturate(60%) hue-rotate(90deg);
+}
+
+.picture__filter_sepia {
+  filter: sepia(80%);
+}
+
+.picture__filter_brightness {
+  filter: brightness(150%);
+}
+
+.picture__filter_contrast {
+  filter: contrast(250%);
+}
+
+.picture__filter_blur {
+  filter: blur(0.2rem);
+  transition: 5s ease;
+  cursor: pointer;
+}
+
+.picture__filter_blur:hover {
+  filter: none;
+}
+
+.picture__filter_grayscale {
+  filter: grayscale(100%);
+}
+
+.picture__filter_opacity:hover,
+.picture__filter_opacity:active {
+  transition: 5s ease;
+  cursor: pointer;
+  filter: opacity(0);
+}
+
+.picture__under {
+  background-image: url(../images/picture9.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 160%;
+}
+
+.label {
   position: absolute;
   inset: 24px 11px auto auto;
   font-family: var(--accent-font), "Arial", fantasy;
   font-size: 14px;
   color: var(--accent-color);
   mix-blend-mode: hard-light;
-  text-shadow: 1px 1px var(--bg-color),
-    -1px -1px var(--bg-color);
+  text-transform: uppercase;
+  opacity: 0.5;
+  text-shadow: 1px 1px var(--bg-color), -1px -1px var(--bg-color);
 }
 
 .content_text {
@@ -200,15 +232,14 @@ button {
 
 .card__like-button {
   position: relative;
-  padding-inline: 36px;
   padding-block: 11px;
   font-size: 14px;
   line-height: 90%;
+  min-width: 130px;
   border: 2px solid var(--accent-color);
 }
 
 .save-memories {
-  background-color: var(--bg-color);
   padding: 49px 34.5px 100px;
   margin: 0 auto;
 }
@@ -226,7 +257,7 @@ button {
 
 .floppy__box {
   position: relative;
-  mix-blend-mode: inherit;
+  mix-blend-mode: difference;
 }
 
 svg {
@@ -321,39 +352,6 @@ dialog svg {
   height: 100px;
 }
 
-/* filters */
-.fascinated {
-  filter: saturate(1.5);
-}
-
-.anxious {
-  filter: sepia(0.5);
-}
-
-.almighty:hover {
-  filter: invert(1);
-}
-
-.flawless {
-  filter: opacity(0.7);
-}
-
-.be-together {
-  filter: brightness(1.5) contrast(1.2);
-}
-
-.shocked {
-  filter: blur(9px);
-}
-
-.shocked:hover {
-  filter: blur(0);
-}
-
-.well-done {
-  filter: brightness(1.1) contrast(1.5);
-}
-
 /* media  */
 @media (width > 375px) {
   .header {
@@ -399,10 +397,8 @@ dialog svg {
   (text-stroke: 1px var(--bg-color)) or
     (-webkit-text-stroke: 1px var(--bg-color))
 ) {
-  .watermark {
-    -webkit-text-stroke: 1px var(--bg-color);
-    text-stroke: 1px var(--bg-color);
-    text-shadow: none;
+  .label {
+    text-shadow: 1px 1px var(--bg-color), -1px -1px var(--bg-color);
   }
 }
 
