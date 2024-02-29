@@ -26,25 +26,23 @@
 }
 
 .header {
-  margin: 0 auto;
+  margin: 100px auto 100px auto;
   background-color: var(--bg-color);
-  margin-block-start: 100px;
   border: 2px solid var(--accent-color);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  height: clamp(20.4375rem, 19.5352rem + 3.8498vw, 23rem);
-  width: 100%;
-  padding-block-end: 25px;
+  inline-size: clamp(375px, 260.5634px + 30.5165vi, 700px);
+  max-inline-size: 700px;
+  padding: clamp(7.5rem, 6.3462rem + 4.9231vw, 8.5rem) 0 23px;
   font-family: var(--accent-font), "Arial", fantasy;
-  gap: 24px;
+  gap: 20px;
   text-transform: uppercase;
 }
 
 .header-title {
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
-  padding-inline: clamp(0.875rem, -1.4688rem + 10vw, 7.53125rem);
 }
 
 .header-subtitle {
@@ -58,9 +56,10 @@
 .theme-menu__list {
   display: flex;
   flex-direction: column;
-  gap: 11px;
+  gap: 12px;
   align-items: flex-start;
   margin-inline-start: 20px;
+  margin-block-start: 5px;
 }
 
 button {
@@ -73,6 +72,7 @@ button {
   position: relative;
   border: none;
   text-transform: uppercase;
+  transition: opacity 0.3s ease;
 }
 
 .theme-menu__button:disabled {
@@ -82,7 +82,8 @@ button {
 .theme-menu__button:disabled::before {
   content: "▶";
   position: absolute;
-  margin-inline-start: -19px;
+  animation: pointer-button 0.5s ease-in-out infinite alternate;
+  translate: calc(-100% - 8px);
 }
 
 .theme-menu__button:disabled,
@@ -101,38 +102,46 @@ button {
   width: 88%;
   transform-origin: 0 0;
   transform: scaleX(0);
+  transition: 0.3s ease;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+@keyframes pointer-button {
+  from {
+    translate: calc(-100% - 8px);
+  }
+  to {
+    translate: calc(-100% - 4px);
+  }
 }
 
 .content-section {
   margin-inline: auto;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  gap: 50px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
   background-color: var(--bg-color);
-  margin-block-end: 50px;
-}
-
-.content-section:first-child {
-  margin-block-start: 100px;
-}
-
-.content-section:last-of-type {
-  margin-block-end: 0px;
+  border: 2px solid var(--accent-color);
 }
 
 .content-title {
-  border: 2px solid var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
   font-size: 18px;
   font-variation-settings: "wght" var(--main-font-title);
-  padding-inline: 10px;
-  padding-block: 5px;
-  line-height: 22px;
-  letter-spacing: 0.2px;
+  padding: 5px 10px 5px 10px;
 }
 
 .content__picture {
   position: relative;
-  border: 2px solid var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
 }
 
 .picture {
@@ -202,10 +211,6 @@ button {
   text-shadow: 1px 1px var(--bg-color), -1px -1px var(--bg-color);
 }
 
-.content_text {
-  border: 2px solid var(--accent-color);
-}
-
 .content__paragraphs {
   display: flex;
   flex-direction: column;
@@ -217,7 +222,6 @@ button {
   text-align: left;
   font-size: 18px;
   line-height: 21px;
-  letter-spacing: 0.6px;
 }
 
 .buttons {
@@ -226,29 +230,20 @@ button {
   align-items: stretch;
   justify-content: flex-end;
   gap: 3px;
-  margin-block-start: 24px;
-  margin-block-end: 26px;
+  height: 38px;
+  margin-block-start: 25px;
+  margin-block-end: 25px;
   margin-inline-end: 25px;
 }
 
-.card__like-button {
-  position: relative;
-  padding-block: 11px;
-  font-size: 14px;
-  line-height: 90%;
-  min-width: 130px;
-  border: 2px solid var(--accent-color);
-}
-
-.save-memories {
-  padding: 49px 34.5px 100px;
-  margin: 0 auto;
-}
-
 .card__icon-button {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
   border: 2px solid transparent;
-  width: 43px;
+  transition: border 0.3s ease;
 }
 
 .card__icon-button:focus,
@@ -256,26 +251,71 @@ button {
   outline: none;
 }
 
+.card__icon-button:focus-visible {
+  border: 2px solid var(--accent-color);
+}
+
+.like-icon {
+  display: block;
+  width: 41px;
+  height: 38px;
+}
+
+.card__like-button {
+  position: relative;
+  padding-block: 11px;
+  min-width: 130px;
+}
+
+.save-memories {
+  padding: 50px 34.5px 100px;
+  margin: 0 auto;
+}
+
 .floppy__box {
   position: relative;
   mix-blend-mode: difference;
-}
-
-svg {
-  height: 36px;
+  inline-size: 28px;
+  block-size: 28px;
 }
 
 .card__save-button {
   position: relative;
   display: flex;
-  flex-direction: column;
-  gap: 7px;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  padding-inline: 18px;
-  padding-block: 8px;
-  margin: 0 auto;
+  gap: 8px;
+  max-width: clamp(19.125rem, 17.0337rem + 8.9231vw, 20.9375rem);
+  margin: 2px auto 0 auto;
+  padding: 15px 18px;
+}
+
+.card-button {
   font-size: 14px;
+  line-height: 90%;
   border: 2px solid var(--accent-color);
+  transition: box-shadow 0.3s ease;
+}
+
+.card-button:focus {
+  outline: none;
+  box-shadow: 2px 2px var(--accent-color);
+}
+
+.card-button::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  background-color: var(--accent-color);
+  inset: 0px auto 0px 0px;
+  transform: scaleX(0);
+  transition: 0.5s ease-in-out;
+  transform-origin: left;
+}
+
+.card-button:hover::before {
+  transform: scale(1);
 }
 
 .button__text {
@@ -283,88 +323,64 @@ svg {
   font-size: 14px;
   mix-blend-mode: difference;
   color: var(--color-invers);
-  margin-block-end: 8px;
-  margin-block-start: 8px;
-}
-
-.put-floppy {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 20px;
-}
-
-.card__like-button:focus,
-.card__save-button:focus {
-  outline: none;
-  box-shadow: 2px 2px var(--accent-color);
-}
-
-.card__like-button::before,
-.card__save-button::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  background-color: var(--accent-color);
-  inset: 0px auto 0px 0px;
-}
-
-.like-icon {
-  position: absolute;
-  inset: 0px;
+  font-family: var(--accent-font), fantasy;
 }
 
 /* dialog window */
 
 dialog {
+  gap: 30px;
+  border: 2px solid var(--accent-color);
+  padding: 30px;
   background-color: var(--bg-color);
   color: var(--accent-color);
   width: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
 }
 
 dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.3);
+  background-color: rgb(0 0 0 / 0.75);
 }
 
 dialog[open] {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  padding: 15px 30px 30px;
-  gap: 15px;
+  justify-content: center;
+  align-items: center;
 }
 
-.dialog-text {
-  font-family: var(--accent-font), "Arial", fantasy;
+dialog[open] .put-floppy {
+  position: relative;
+  display: grid;
+  grid-template-columns: min-content clamp(
+      12.375rem,
+      11.5827rem + 3.3803vw,
+      14.625rem
+    );
+  align-items: center;
+  gap: 20px;
+}
+
+dialog[open] .button__text {
   text-transform: uppercase;
-  font-size: 14px;
   line-height: 150%;
 }
 
-form .card__save-button {
-  width: 94%;
+dialog[open] .floppy__box {
+  inline-size: 39px;
+  block-size: 39px;
 }
 
-dialog .button__text {
-  text-transform: uppercase;
-}
-
-dialog svg {
-  height: 100px;
+dialog[open] .close-button {
+  position: relative;
+  border: 2px solid var(--accent-color);
+  block-size: 38px;
+  inline-size: clamp(16.0625rem, 15.2702rem + 3.3803vw, 18.3125rem);
 }
 
 /* media  */
 @media (width > 375px) {
-  .header {
-    width: var(--window-width);
-  }
-
   .content-section {
     width: var(--window-width);
-  }
-
-  .content__paragraphs {
-    margin-block-start: 29px;
   }
 
   .save-memories {
@@ -372,24 +388,18 @@ dialog svg {
   }
 
   .card__save-button svg {
-    height: 23px;
-    align-self: center;
-  }
-
-  .button__text {
-    margin-block-start: 11px;
+    inline-size: 21px;
+    block-size: 21px;
   }
 
   .card__save-button {
-    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     gap: 8px;
-    padding-inline: 20px;
-  }
-
-  dialog svg {
-    height: 90px;
+    max-width: clamp(19.125rem, 17.0337rem + 8.9231vw, 20.9375rem);
+    padding: 15px 18px;
   }
 }
 
@@ -399,7 +409,9 @@ dialog svg {
     (-webkit-text-stroke: 1px var(--bg-color))
 ) {
   .label {
-    text-shadow: 1px 1px var(--bg-color), -1px -1px var(--bg-color);
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--bg-color);
+    text-stroke: 1px var(--bg-color);
   }
 }
 
