@@ -82,6 +82,8 @@ button {
 .theme-menu__button:disabled::before {
   content: "▶";
   position: absolute;
+  top: 0;
+  left: 0;
   animation: pointer-button 0.5s ease-in-out infinite alternate;
   translate: calc(-100% - 8px);
 }
@@ -109,14 +111,7 @@ button {
   transform: scaleX(1);
 }
 
-@keyframes pointer-button {
-  from {
-    translate: calc(-100% - 8px);
-  }
-  to {
-    translate: calc(-100% - 4px);
-  }
-}
+
 
 .content-section {
   margin-inline: auto;
@@ -291,19 +286,19 @@ button {
   padding: 15px 18px;
 }
 
-.card-button {
+.button {
   font-size: 14px;
   line-height: 90%;
   border: 2px solid var(--accent-color);
   transition: box-shadow 0.3s ease;
 }
 
-.card-button:focus {
+.button:focus {
   outline: none;
   box-shadow: 2px 2px var(--accent-color);
 }
 
-.card-button::before {
+.button::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -314,7 +309,7 @@ button {
   transform-origin: left;
 }
 
-.card-button:hover::before {
+.button:hover::before {
   transform: scale(1);
 }
 
@@ -334,7 +329,6 @@ dialog {
   padding: 30px;
   background-color: var(--bg-color);
   color: var(--accent-color);
-  width: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
 }
 
 dialog::backdrop {

@@ -105,3 +105,12 @@
     opacity: 1;
   }
 }
+
+@keyframes pointer-button {
+  from {
+    translate: calc(-100% - 8px);
+  }
+  to {
+    translate: calc(-100% - 4px);
+  }
+}
